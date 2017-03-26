@@ -2,7 +2,7 @@
 
 if [ $# -ne 3 ]
 then
-	echo "usage: bash run_spark [category] [event-name] [input-event]"
+	echo "usage: bash run_spark [category] [event-name] [input-file]"
 	exit 1
 fi
 
