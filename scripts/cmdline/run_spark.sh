@@ -16,6 +16,12 @@ rm -rf ../../output/out/$event
 
 spark-submit ../${category}/spark_${event}.py $input
 /usr/bin/hadoop fs -get ${event}.out ../../output/out/$event
-/usr/bin/hadoop fs -getmerge ${event}.out ../../output/unsort.out
-sort -n ../../output/unsort.out > ../../output/${event}.out
-rm ../../output/unsort.out
+
+if [ $category = 'datetime' ]
+then
+	/usr/bin/hadoop fs -getmerge ${event}.out ../../output/unsort.out
+	sort -n ../../output/unsort.out > ../../output/${event}.out
+	rm ../../output/unsort.out
+else
+	/usr/bin/hadoop fs -getmerge ${event}.out ../../output/${event}.out
+fi
