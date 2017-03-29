@@ -27,6 +27,14 @@ dataset='small_crime.csv'
 #bash run_spark.sh locations crime_amount_premises $dataset
 
 # Crime amounts at each precincts
-bash run_spark.sh locations crime_amount_each_precincts $dataset
+#bash run_spark.sh locations crime_amount_each_precincts $dataset
 
+# Blank lines in each column
+#bash run_spark.sh cleaning amount_blanklines_columns $dataset
+
+# Count frequency in each value
+#bash run_count_frequency.sh cleaning count_frequency small_crime.csv 6 18 8
+
+# Check if the key is duplicated
+bash run_spark.sh cleaning check_duplicate $dataset
 
