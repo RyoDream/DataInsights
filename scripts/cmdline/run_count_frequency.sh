@@ -2,7 +2,7 @@
 
 if [ $# -ne 6 ]
 then
-	echo "usage: bash run_spark [category] [event-name] [input-file]"
+	echo "usage: bash run_count_frequency [category] [event-name] [input-file] [column-begin-number] [column-end-number] [line-number]"
 	exit 1
 fi
 
@@ -32,3 +32,4 @@ do
 done
 
 rm temp.py
+rm temp.out

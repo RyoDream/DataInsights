@@ -36,5 +36,11 @@ dataset='small_crime.csv'
 #bash run_count_frequency.sh cleaning count_frequency small_crime.csv 6 18 8
 
 # Check if the key is duplicated
-bash run_spark.sh cleaning check_duplicate $dataset
+#bash run_spark.sh cleaning check_duplicate $dataset
+
+# Count frequency for particular columns for each month
+#bash run_spark.sh statistics count_columns_each_month $dataset
+
+# Count particular column value for each month
+bash run_particular_value_frequency.sh datetime particular_value_each_month small_crime.csv 11 MISDEMEANOR
 
