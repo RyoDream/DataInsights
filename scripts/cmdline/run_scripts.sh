@@ -42,5 +42,8 @@ dataset='small_crime.csv'
 #bash run_spark.sh statistics count_columns_each_month $dataset
 
 # Count particular column value for each month
-bash run_particular_value_frequency.sh datetime particular_value_each_month small_crime.csv 11 MISDEMEANOR
+#bash run_particular_value_frequency.sh datetime particular_value_each_month small_crime.csv 11 MISDEMEANOR
+
+# Validate format for patitular column
+bash run_spark.sh cleaning validate_format $dataset
 

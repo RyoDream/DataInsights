@@ -1,3 +1,2 @@
 1. time statistics
-2. offense level
-3. crime type
+2. each hour
