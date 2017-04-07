@@ -1,6 +1,7 @@
 #!/bin/bash
 
-dataset='small_crime.csv'
+dataset='nypd_crime.csv'
+#dataset='small_crime.csv'
 
 # Crime amounts in each day
 #bash run_spark.sh datetime crime_amount_each_day $dataset
@@ -45,5 +46,11 @@ dataset='small_crime.csv'
 #bash run_particular_value_frequency.sh datetime particular_value_each_month small_crime.csv 11 MISDEMEANOR
 
 # Validate format for patitular column
-bash run_spark.sh cleaning validate_format $dataset
+#bash run_spark.sh cleaning validate_format $dataset
+
+# Filter out blank cells in particular columns
+#bash run_filter_out_blank_columns.sh cleaning filter_out_blank_columns $dataset 1,2,5,6,7,10,13,14
+
+# Replace blank cells to 'undefined' in each columns
+bash
 

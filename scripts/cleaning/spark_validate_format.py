@@ -10,7 +10,7 @@ from pyspark import SparkContext
 
 def validate_format(row):
     date = row[index]
-    return re.match(pattern, date) is None
+    return date != '' and date != 'undefined' and re.match(pattern, date) is None
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
