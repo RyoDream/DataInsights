@@ -5,7 +5,7 @@ from csv import reader
 from operator import add
 from pyspark import SparkContext
 
-index = 7
+index = 2
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
