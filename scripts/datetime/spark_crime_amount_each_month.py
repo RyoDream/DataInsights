@@ -18,6 +18,6 @@ if __name__ == "__main__":
     lines = sc.textFile(sys.argv[1], 1)
     lines = lines.mapPartitions(lambda x : reader(x)).map(lambda row: row[1])
     counts = lines.map(format_date).map(lambda crime_date : (crime_date, 1)).reduceByKey(add)
-    counts = counts.map(lambda (key, value) : key+"\t"+str(value))
+    counts = counts.map(lambda row : row[0]+"\t"+str(row[1]))
     counts.saveAsTextFile("crime_amount_each_month.out")
     sc.stop()
