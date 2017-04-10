@@ -36,6 +36,6 @@ for year in range(2006, 2016):
     for month in range(1, 13):
         dates.append(dt.datetime(year=year, month=month, day=1))
 
-plt.plot(plot_crime_amount_each_month.py, crimes)
+plt.plot(dates, crimes)
 # plt.show()
 plt.savefig('../output/images/crimes_amount_each_month.png')

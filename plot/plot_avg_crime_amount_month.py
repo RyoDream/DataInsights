@@ -30,7 +30,7 @@ def average_crimes_each_month(crimes):
 # format the coordinators
 crimes = average_crimes_each_month(crimes)
 
-fig, ax = plt.subplots(figsize=(10,5))
+fig, ax = plt.subplots(figsize=(10, 5))
 x_pos = np.arange(len(months))
 rect = ax.bar(x_pos, crimes, color='green')
 ax.set_xticks(x_pos)

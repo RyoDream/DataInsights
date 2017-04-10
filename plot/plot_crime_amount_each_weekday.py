@@ -3,10 +3,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-month, crimes = np.loadtxt("../output/crime_amount_months.out", delimiter='\t', unpack=True)
-months = ("Jan", "Feb", "Mar", "Apr", "May",
-		  "June", "July", "Aug", "Sep", "Oct",
-		  "Nov", "Dec")
+weeks = ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun')
+index, crimes = np.loadtxt("../output/crime_amount_each_weekday.out", delimiter='\t', unpack=True, dtype=int)
 
 def auto_label(rects):
 	for rect in rects:
@@ -15,13 +13,12 @@ def auto_label(rects):
 
 # format the coordinators
 fig, ax = plt.subplots(figsize=(10,5))
-x_pos = np.arange(len(months))
+x_pos = np.arange(len(weeks))
 rect = ax.bar(x_pos, crimes, color='green')
 ax.set_xticks(x_pos)
-ax.set_xticklabels(months)
+ax.set_xticklabels(weeks)
 ax.set_ylabel('Crime Amount')
-ax.set_title('Crime Amount By Month')
+ax.set_title('Crime Amount By Weekday')
 auto_label(rect)
-plt.plot(crimes, 'r')
 # plt.show()
-plt.savefig('../output/images/crimes_amount_month.png')
+plt.savefig('../output/images/crimes_amount_each_weekday.png')
