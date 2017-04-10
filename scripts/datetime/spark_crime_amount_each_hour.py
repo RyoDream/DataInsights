@@ -7,8 +7,6 @@ from pyspark import SparkContext
 from datetime import datetime
 
 def format_date(date_str):
-    if date_str == '24:00:00':
-        date_str = '00:00:00'
     crime_date = datetime.strptime(date_str, '%H:%M:%S')
     return crime_date.strftime('%H')
 
