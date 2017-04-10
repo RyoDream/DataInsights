@@ -5,7 +5,7 @@ dataset='cleared_dataset.csv'
 #dataset='small_crime.csv'
 
 # Crime amounts in each day
-#bash run_spark.sh datetime crime_amount_each_day $dataset
+bash run_spark.sh datetime crime_amount_each_day $dataset
 
 # Crime amounts in each month
 bash run_spark.sh datetime crime_amount_each_month $dataset
