@@ -13,6 +13,12 @@ bash run_spark.sh datetime crime_amount_each_month $dataset
 # Crime amounts in each year
 bash run_spark.sh datetime crime_amount_each_year $dataset
 
+# Crime amounts in each weekday
+bash run_spark.sh datetime crime_amount_each_weekday $dataset
+
+# Crime amounts in each hour
+bash run_spark.sh datetime crime_amount_each_hour $dataset
+
 # Crime amounts in each year (without year information)
 bash run_spark.sh datetime crime_amount_months $dataset
 
@@ -36,4 +42,5 @@ bash run_spark.sh locations crime_amount_each_precincts $dataset
 
 # Count particular column value for each month
 #bash run_particular_value_frequency.sh datetime particular_value_each_month small_crime.csv 11 MISDEMEANOR
+
 

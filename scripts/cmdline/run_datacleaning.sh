@@ -23,11 +23,17 @@ dataset='cleared_dataset.csv'
 #/usr/bin/hadoop fs -rm cleared_dataset.csv
 #/usr/bin/hadoop fs -put ../../output/filter_out_by_year.csv cleared_dataset.csv
 
+# Replace dawn hour
+# bash run_replace_dawn_hour.sh cleaning replace_dawn_hour $dataset
+
+#/usr/bin/hadoop fs -rm cleared_dataset.csv
+#/usr/bin/hadoop fs -put ../../output/filter_out_by_year.csv cleared_dataset.csv
+
 # Check if the key is duplicated
 #bash run_spark.sh cleaning check_duplicate $dataset
 
 # Count frequency in each value
-bash run_count_frequency.sh cleaning count_frequency $dataset 6 18 8
+#bash run_count_frequency.sh cleaning count_frequency $dataset 6 18 8
 
 # Validate format for particular column
 # Validate CMPLNT_FR_TM
@@ -37,12 +43,12 @@ bash run_validate_format.sh cleaning validate_format $dataset 2 '(2[0-3]|1[0-9]|
 bash run_validate_format.sh cleaning validate_format $dataset 4 '(2[0-3]|1[0-9]|0[0-9]|[^0-9][0-9]):([0-5][0-9]|[0-9]):([0-5][0-9]|[0-9])'
 
 # Validate CMPLNT_FR_DT
-bash run_validate_date.sh cleaning validate_date cleared_dataset.csv 1
+#bash run_validate_date.sh cleaning validate_date cleared_dataset.csv 1
 
 # Validate CMPLNT_TO_DT
-bash run_validate_date.sh cleaning validate_date cleared_dataset.csv 3
+#bash run_validate_date.sh cleaning validate_date cleared_dataset.csv 3
 
 # Validate RPT_DT
-bash run_validate_date.sh cleaning validate_date cleared_dataset.csv 5
+#bash run_validate_date.sh cleaning validate_date cleared_dataset.csv 5
 
 
