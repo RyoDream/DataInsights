@@ -43,4 +43,6 @@ bash run_spark.sh locations crime_amount_each_precincts $dataset
 # Count particular column value for each month
 #bash run_particular_value_frequency.sh datetime particular_value_each_month small_crime.csv 11 MISDEMEANOR
 
+# Fetch gps location
+bash run_spark.sh locations fetch_location $dataset
 
