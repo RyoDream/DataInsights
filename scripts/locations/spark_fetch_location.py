@@ -9,7 +9,9 @@ from operator import add
 from pyspark import SparkContext
 
 def fetch_location(row):
-    return row[23]
+    location = row[23]
+    location = location[1:-1]
+    return '"' + location + '"'
 
 def filter_out_empty(row):
     return row[23] != 'undefined'
