@@ -24,7 +24,7 @@ def filter_out_invalid_datetime(row):
            return False
 
     if start_date == '' or end_date == '':
-        return False
+        return True
 
     if start_time == '' or end_time == '':
         return datetime.strptime(start_date, '%m/%d/%Y') <= datetime.strptime(end_date, '%m/%d/%Y')
