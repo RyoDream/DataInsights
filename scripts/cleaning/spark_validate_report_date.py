@@ -32,7 +32,7 @@ def dump_csv(row):
     end_date = row[3] if row[3] != '' else 'NULL'
     report_date = row[5] if row[5] != '' else 'NULL'
     crime_id = row[0]
-    return crime_id+'\t'+start_date+'\t'+start_time+'\t'+end_date+'\t'+end_time
+    return crime_id+'\t'+start_date+'\t'+end_date+'\t'+report_date
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
