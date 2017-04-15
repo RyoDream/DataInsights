@@ -12,9 +12,10 @@ def replace_dawn_hour(row):
     for index in (2, 4):
         if row[index] == '24:00:00':
             row[index] = '00:00:00'
-            crime_date = datetime.strptime(row[index-1], '%m/%d/%Y')
-            crime_date += timedelta(days=1)
-            row[index-1] = crime_date.strftime('%m/%d/%Y')
+            if row[index-1] != ''
+                crime_date = datetime.strptime(row[index-1], '%m/%d/%Y')
+                crime_date += timedelta(days=1)
+                row[index-1] = crime_date.strftime('%m/%d/%Y')
     return row
 
 def dump_csv(row):
