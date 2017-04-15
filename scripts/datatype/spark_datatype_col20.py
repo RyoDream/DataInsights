@@ -63,6 +63,11 @@ def is_semantic_of_crime_status(x):
     status = ('COMPLETED', 'ATTEMPTED')
     return determine_type_of(x) == 'TEXT' and x in status
 
+def is_semantic_of_geolocation(x):
+    reg = '^(\([-+]?\d{1,2}[.]\d+),\s*([-+]?\d{1,3}[.]\d+\))$'
+    res = re.match(reg, x)
+    return res is not None
+    
 def determine_semantic_of(x, dtype):
     if dtype == 'INTEGER':
         value = int(x)
@@ -88,6 +93,8 @@ def determine_semantic_of(x, dtype):
             return 'Indicator of Crime Status'
         if is_semantic_of_offense_level(x):
             return 'Offense Level'
+        if is_semantic_of_geolocation(x):
+            return 'Geolocation Pair'
     return 'Plain Text'
 
 def determine_value_of(x, dtype, dsemantic, base_type, base_semantic):
