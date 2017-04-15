@@ -12,12 +12,12 @@ def find_invalid_datetime(row):
     start_time = row[2]
     end_date = row[3]
     end_time = row[4]
-    
+
     if start_date == '' or end_date == '':
         return False
 
-    start_year = start_date.strftime('%Y')
-    end_year = start_date.strftime('%Y')
+    start_year = datetime.strptime(start_date, '%m/%d/%Y').strftime('%Y')
+    end_year = datetime.strptime(end_date, '%m/%d/%Y').strftime('%Y')
     if start_year > 2015 or start_year < 2006 or end_year > 2015 or end_year < 2006:
         return True
 
@@ -38,7 +38,7 @@ def dump_csv(row):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: spark_filter_out_by_year <file>", file=sys.stderr)
+        print("Usage: spark_find_invalid_datetime <file>", file=sys.stderr)
         exit(-1)
     sc = SparkContext()
     lines = sc.textFile(sys.argv[1], 1)
