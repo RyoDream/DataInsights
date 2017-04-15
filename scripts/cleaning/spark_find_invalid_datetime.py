@@ -26,7 +26,7 @@ def find_invalid_datetime(row):
     
     start_date = datetime.strptime(start_date+' '+start_time, '%m/%d/%Y %H:%M:%S')
     end_date = datetime.strptime(end_date+' '+end_time, '%m/%d/%Y %H:%M:%S')
-    return start_date >= end_date
+    return start_date > end_date
 
 def dump_csv(row):
     start_date = row[1]
