@@ -7,7 +7,7 @@ from operator import add
 from pyspark import SparkContext
 from datetime import datetime
 
-def validate_date(row):
+def filter_out_invalie_report_date(row):
     start_date = row[1]
     report_date = row[5]
     if start_date == '' or report_date == '':
@@ -36,11 +36,11 @@ def dump_csv(row):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: spark_validate_date <file>", file=sys.stderr)
+        print("Usage: spark_validate_report_date <file>", file=sys.stderr)
         exit(-1)
     sc = SparkContext()
     lines = sc.textFile(sys.argv[1], 1)
-    lines = lines.mapPartitions(lambda x : reader(x)).filter(validate_date)
-    lines = lines.map(lambda row : (row[0]+'   '+row[index]))
-    lines.saveAsTextFile("validate_date.out")
+    lines = lines.mapPartitions(lambda x : reader(x)).filter(filter_out_invalie_report_date)
+    lines = lines.map(dump_csv)
+    lines.saveAsTextFile("validate_report_date.out")
     sc.stop()
