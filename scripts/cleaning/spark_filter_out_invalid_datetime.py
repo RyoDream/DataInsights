@@ -12,8 +12,6 @@ def filter_out_invalid_datetime(row):
     start_time = row[2]
     end_date = row[3]
     end_time = row[4]
-    if start_date == '' and end_date == '':
-        return True
 
     if start_date != '':
         start_year = int(datetime.strptime(start_date, '%m/%d/%Y').strftime('%Y'))
@@ -24,6 +22,9 @@ def filter_out_invalid_datetime(row):
         end_year = int(datetime.strptime(end_date, '%m/%d/%Y').strftime('%Y'))
         if end_year > 2015 or end_year < 2006:
            return False
+
+    if start_date == '' or end_date == '':
+        return False
 
     if start_time == '' or end_time == '':
         return datetime.strptime(start_date, '%m/%d/%Y') <= datetime.strptime(end_date, '%m/%d/%Y')
