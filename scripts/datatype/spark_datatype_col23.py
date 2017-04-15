@@ -104,12 +104,10 @@ def determine_value_of(x, dtype, dsemantic, base_type, base_semantic):
     # Check data semantic
     if dtype != base_type or dsemantic != base_semantic:
         return 'INVALID'
-    if float(x) < -180.0 or float(x) > 180.0:
-        return 'INVALID'
     return 'VALID'
 
 def get_metadata_of(x):
-    base_type = 'FLOAT'
+    base_type = 'TEXT'
     base_semantic = 'Geolocation Pair'
 
     if x == '':
@@ -121,7 +119,7 @@ def get_metadata_of(x):
     return ('%s %s \"%s\" %s' % (x, dtype, dsemantic, dvalue))
 
 if __name__ == "__main__":
-    index = 22
+    index = 23
     if len(sys.argv) != 2:
         print("Usage: spark_datatype_col"+str(index)+" <file>", file=sys.stderr)
         exit(-1)
