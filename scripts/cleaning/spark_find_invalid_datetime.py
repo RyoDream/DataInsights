@@ -12,8 +12,15 @@ def find_invalid_datetime(row):
     start_time = row[2]
     end_date = row[3]
     end_time = row[4]
+    
     if start_date == '' or end_date == '':
         return False
+
+    start_year = start_date.strftime('%Y')
+    end_year = start_date.strftime('%Y')
+    if start_year > 2015 or start_year < 2006 or end_year > 2015 or end_year < 2006:
+        return True
+
     if start_time == '' or end_time == '':
         return datetime.strptime(start_date, '%m/%d/%Y') > datetime.strptime(end_date, '%m/%d/%Y')
     
