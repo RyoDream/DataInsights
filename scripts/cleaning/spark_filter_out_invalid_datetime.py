@@ -7,7 +7,7 @@ from operator import add
 from pyspark import SparkContext
 from datetime import datetime
 
-def filter_invalid_datetime(row):
+def filter_out_invalid_datetime(row):
     start_date = row[1]
     start_time = row[2]
     end_date = row[3]
@@ -34,10 +34,10 @@ def dump_csv(row):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: spark_filter_out_by_year <file>", file=sys.stderr)
+        print("Usage: spark_filter_out_invalid_datetime <file>", file=sys.stderr)
         exit(-1)
     sc = SparkContext()
     lines = sc.textFile(sys.argv[1], 1)
-    lines = lines.mapPartitions(lambda x : reader(x)).filter(filter_out_by_year).map(dump_csv)
+    lines = lines.mapPartitions(lambda x : reader(x)).filter(filter_out_invalid_datetime).map(dump_csv)
     lines.saveAsTextFile("filter_out_invalid_datetime.out")
     sc.stop()
