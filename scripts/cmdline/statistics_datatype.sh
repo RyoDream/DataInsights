@@ -3,7 +3,7 @@
 printf "Col\tValid\tInvalid\tNULL\n"
 echo "----------------------------"
 
-for i in {0..22}
+for i in {0..23}
 do
 	file="../../output/datatype_col"$i".out"
 	valid=`cat $file | grep VALID | wc -l`

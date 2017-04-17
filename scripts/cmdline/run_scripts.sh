@@ -37,6 +37,9 @@ bash run_spark.sh locations crime_amount_premises $dataset
 # Crime amounts at each precincts
 bash run_spark.sh locations crime_amount_each_precincts $dataset
 
+# Crime type in each borough
+bash run_type_borough.sh locations crime_type_each_borough $dataset
+
 # Count frequency for particular columns for each month
 #bash run_spark.sh statistics count_columns_each_month $dataset
 
