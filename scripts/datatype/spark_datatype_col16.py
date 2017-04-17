@@ -110,7 +110,7 @@ def get_metadata_of(x):
     base_type = 'TEXT'
     base_semantic = 'Premises Description'
 
-    if x == '':
+    if x == '' or x == 'UNDEFINED':
        return ('%s %s \"%s\" %s' % (x, base_type, base_semantic, 'NULL'))
 
     dtype = determine_type_of(x)

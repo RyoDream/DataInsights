@@ -110,7 +110,7 @@ def get_metadata_of(x):
     base_type = 'TEXT'
     base_semantic = 'Location of Occurrence'
 
-    if x.strip() == '':
+    if x.strip() == '' or x == 'UNDEFINED':
        return ('%s %s \"%s\" %s' % (x, base_type, base_semantic, 'NULL'))
 
     dtype = determine_type_of(x)

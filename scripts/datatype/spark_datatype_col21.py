@@ -112,7 +112,7 @@ def get_metadata_of(x):
     base_type = 'FLOAT'
     base_semantic = 'Latitude'
 
-    if x == '':
+    if x == '' or x == 'UNDEFINED':
        return ('%s %s \"%s\" %s' % (x, base_type, base_semantic, 'NULL'))
 
     dtype = determine_type_of(x)

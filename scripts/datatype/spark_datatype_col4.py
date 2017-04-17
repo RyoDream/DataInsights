@@ -110,7 +110,7 @@ def get_metadata_of(x):
     base_type = 'TIME'
     base_semantic = 'Crime Ended Time'
 
-    if x == '':
+    if x == '' or x == 'UNDEFINED':
         return ('%s %s \"%s\" %s' % (x, base_type, base_semantic, 'NULL'))
 
     dtype = determine_type_of(x)
