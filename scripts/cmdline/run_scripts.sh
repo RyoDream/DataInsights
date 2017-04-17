@@ -40,6 +40,14 @@ bash run_spark.sh locations crime_amount_each_precincts $dataset
 # Crime type in each borough
 bash run_type_borough.sh locations crime_type_each_borough $dataset
 
+# Fetch geolocation in each borough
+./run_fetch_location.sh locations fetch_location $dataset manhattan
+./run_fetch_location.sh locations fetch_location $dataset brooklyn
+./run_fetch_location.sh locations fetch_location $dataset queens
+./run_fetch_location.sh locations fetch_location $dataset bronx
+./run_fetch_location.sh locations fetch_location $dataset staten
+
+
 # Count frequency for particular columns for each month
 #bash run_spark.sh statistics count_columns_each_month $dataset
 

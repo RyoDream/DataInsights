@@ -12,18 +12,18 @@ def filter_out_invalie_report_date(row):
     report_date = row[5]
     if start_date == '' or start_date == 'UNDEFINED' or report_date == '' or report_date == 'UNDEFINED':
         return False
-    
+
     start_date = datetime.strptime(start_date, '%m/%d/%Y')
     report_date = datetime.strptime(report_date, '%m/%d/%Y')
     report_year = int(start_date.strftime('%Y'))
     if report_year < 2006 or report_year > 2015 or start_date > report_date:
         return True
 
-    end_date = row[3]
-    if end_date != '' and end_date != 'UNDEFINED':
-        end_date = datetime.strptime(end_date, '%m/%d/%Y')
-        if end_date > report_date:
-            return True
+#    end_date = row[3]
+#    if end_date != '' and end_date != 'UNDEFINED':
+#        end_date = datetime.strptime(end_date, '%m/%d/%Y')
+#        if end_date > report_date:
+#            return True
 
     return False
 
