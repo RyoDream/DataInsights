@@ -10,7 +10,7 @@ from datetime import datetime
 def filter_out_invalie_report_date(row):
     start_date = row[1]
     report_date = row[5]
-    if start_date == '' or report_date == '':
+    if start_date == '' or start_date == 'UNDEFINED' or report_date == '' or report_date == 'UNDEFINED':
         return False
     
     start_date = datetime.strptime(start_date, '%m/%d/%Y')
@@ -20,7 +20,7 @@ def filter_out_invalie_report_date(row):
         return True
 
     end_date = row[3]
-    if end_date != '':
+    if end_date != '' and end_date != 'UNDEFINED':
         end_date = datetime.strptime(end_date, '%m/%d/%Y')
         if end_date > report_date:
             return True
