@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import csv
 
 boroughs = ('manhattan', 'brooklyn', 'bronx', 'queens', 'staten')
-colors = ('green', 'orange', 'yellow', 'purple', 'blue')
+colors = ('green', 'orange', 'yellow', 'pink', 'blue')
 
 def auto_label(rects, index):
     for rect in rects:
