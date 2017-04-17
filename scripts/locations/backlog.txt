@@ -1,5 +1,0 @@
-1. indoor and outdoor
-2. borough
-3. public location
-4, offense level
-5. crime type
