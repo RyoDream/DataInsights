@@ -41,7 +41,7 @@ for crime in crimes:
 	year+=1
 
 plt.xlabel('Crime Date')
-plt.ylabel('Crime Amount')
+plt.ylabel('Average Crime Amount per Day')
 plt.title('Average Crime Amount Per Day In Each Month (2006 - 2015)')
 plt.axis('auto')
 plt.legend(loc=8)
