@@ -9,7 +9,7 @@ from pyspark import SparkContext
 def replace_blank(row):
     for index in range(0, 24):
         if row[index] == '':
-            row[index] = 'undefined'
+            row[index] = 'UNDEFINED'
     return row
 
 def dump_csv(row):

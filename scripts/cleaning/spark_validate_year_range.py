@@ -16,7 +16,7 @@ if __name__ == "__main__":
         exit(-1)
     sc = SparkContext()
     lines = sc.textFile(sys.argv[1], 1)
-    lines = lines.mapPartitions(lambda x : reader(x)).map(lambda row: row[1]).filter(lambda x : x != '')
+    lines = lines.mapPartitions(lambda x : reader(x)).map(lambda row: row[3]).filter(lambda x : x != '')
     counts = lines.map(format_date).map(lambda crime_date : (crime_date, 1)).reduceByKey(add)
     counts = counts.map(lambda row : row[0]+"\t"+str(row[1]))
     counts.saveAsTextFile("validate_year_range.out")

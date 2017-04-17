@@ -3,34 +3,34 @@
 dataset='nypd_crime.csv'
 
 # Filter out blank cells in particular columns
-#bash run_filter_out_blank_columns.sh cleaning filter_out_blank_columns $dataset 1,2,5,6,7,10,13,14
+bash run_filter_out_blank_columns.sh cleaning filter_out_blank_columns $dataset 1,2,5,6,7,10,13,14
 
-#/usr/bin/hadoop fs -rm cleared_dataset.csv
-#/usr/bin/hadoop fs -put ../../output/filter_out_blank_columns.csv cleared_dataset.csv
-
-# Replace dawn hour
-#bash run_replace_dawn_hour.sh cleaning replace_dawn_hour $dataset
-#/usr/bin/hadoop fs -rm cleared_dataset.csv
-#/usr/bin/hadoop fs -put ../../output/replace_dawn_hour.csv cleared_dataset.csv
+/usr/bin/hadoop fs -rm cleared_dataset.csv
+/usr/bin/hadoop fs -put ../../output/filter_out_blank_columns.csv cleared_dataset.csv
 
 dataset='cleared_dataset.csv'
+# Replace dawn hour
+bash run_replace_dawn_hour.sh cleaning replace_dawn_hour $dataset
+/usr/bin/hadoop fs -rm cleared_dataset.csv
+/usr/bin/hadoop fs -put ../../output/replace_dawn_hour.csv cleared_dataset.csv
+
 # Find Invalid Datetime information in the dataset
-#bash run_spark.sh cleaning find_invalid_datetime $dataset
+bash run_spark.sh cleaning find_invalid_datetime $dataset
 
 # Filter out invalid datetime inforation in the dataset
-#bash run_filter_out_invalid_datetime.sh cleaning filter_out_invalid_datetime $dataset
-#/usr/bin/hadoop fs -rm cleared_dataset.csv
-#/usr/bin/hadoop fs -put ../../output/filter_out_invalid_datetime.csv cleared_dataset.csv
+bash run_filter_out_invalid_datetime.sh cleaning filter_out_invalid_datetime $dataset
+/usr/bin/hadoop fs -rm cleared_dataset.csv
+/usr/bin/hadoop fs -put ../../output/filter_out_invalid_datetime.csv cleared_dataset.csv
 
 # Validate report date
-bash run_spark.sh cleaning validate_report_date $dataset
+#bash run_spark.sh cleaning validate_report_date $dataset
 
 dataset='cleared_dataset.csv'
 # Replace blank cells to 'undefined' in each columns
-#bash run_replace_blank_columns.sh cleaning replace_blank_columns $dataset
+bash run_replace_blank_columns.sh cleaning replace_blank_columns $dataset
 
-#/usr/bin/hadoop fs -rm cleared_dataset.csv
-#/usr/bin/hadoop fs -put ../../output/replace_blank_columns.csv cleared_dataset.csv
+/usr/bin/hadoop fs -rm cleared_dataset.csv
+/usr/bin/hadoop fs -put ../../output/replace_blank_columns.csv cleared_dataset.csv
 
 # Validate crime happen date
 #bash run_spark.sh cleaning validate_year_range $dataset
