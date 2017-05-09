@@ -17,7 +17,7 @@ rm -rf ../../output/out/$event
 spark-submit ../${category}/spark_${event}.py $input
 /usr/bin/hadoop fs -get ${event}.out ../../output/out/$event
 
-if [ $category = 'datetime' ] || [ $category = 'cleaning' ]
+if [ $category = 'datetime' ] || [ $category = 'cleaning' ] || [ $category = 'correlation' ]
 then
 	/usr/bin/hadoop fs -getmerge ${event}.out ../../output/unsort.out
 	sort -n ../../output/unsort.out > ../../output/${event}.out
