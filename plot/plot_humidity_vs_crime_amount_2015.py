@@ -39,7 +39,7 @@ ax1.plot(dates, crimes, 'g', label='crime amount')
 ax2 = ax1.twinx()
 ax2.set_ylabel('avg. Relative Humidity (%)')
 ax2.grid(True)
-ax2.plot(dates, humidity, 'b', label='avg. wind speed')
+ax2.plot(dates, humidity, 'b', label='avg. relative humidity')
 
 ax2.xaxis.set_ticks(np.arange(1, 366, 30.0))
 plt.title('Crime Amount vs Humidity In Each Day (2015)')
