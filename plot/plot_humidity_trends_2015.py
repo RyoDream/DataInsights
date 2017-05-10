@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import matplotlib
-# matplotlib.use('Agg')
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 import datetime as dt
@@ -47,5 +47,5 @@ plt.axis('auto')
 plt.plot(humidity, crimes, label='crime amount')
 plt.legend()
 
-plt.show()
-# plt.savefig('../output/images/windspeed_trends_2015.png')
+# plt.show()
+plt.savefig('../output/images/humidity_trends_2015.png')
