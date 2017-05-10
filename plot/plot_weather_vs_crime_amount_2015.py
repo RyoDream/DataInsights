@@ -49,7 +49,7 @@ ax2.grid(True)
 ax2.plot(dates, temperature, 'r')
 
 ax3 = fig.add_subplot(413, sharex=ax1)
-ax3.set_ylabel('avg. humidity (%)')
+ax3.set_ylabel('avg. relative humidity')
 ax3.grid(True)
 ax3.plot(dates, humidity, 'g')
 

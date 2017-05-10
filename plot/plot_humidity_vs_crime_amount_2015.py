@@ -37,7 +37,7 @@ ax1.set_ylabel('Crime Amount')
 ax1.plot(dates, crimes, 'g', label='crime amount')
 
 ax2 = ax1.twinx()
-ax2.set_ylabel('avg. Humidity (%)')
+ax2.set_ylabel('avg. Relative Humidity (%)')
 ax2.grid(True)
 ax2.plot(dates, humidity, 'b', label='avg. wind speed')
 

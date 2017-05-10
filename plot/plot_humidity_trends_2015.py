@@ -41,7 +41,7 @@ fig, ax = plt.subplots(figsize=(10,5))
 ax.grid(True)
 plt.title('Average Crime Amount vs Humidity (2015)')
 plt.ylabel('Average Crime Amount')
-plt.xlabel('Humidity (%)')
+plt.xlabel('Relative Humidity')
 plt.axis('auto')
 
 plt.plot(humidity, crimes, label='crime amount')

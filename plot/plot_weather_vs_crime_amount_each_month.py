@@ -14,7 +14,7 @@ monthFmt = mdates.DateFormatter('%m')
 
 # load data
 date, crimes = np.loadtxt("../output/crime_amount_each_month.out", delimiter='\t', unpack=True)
-w_date, temperature, humidity, wind_speed = np.loadtxt("../output/weather_average.out", delimiter=', ', unpack=True)
+w_date, temperature, humidity, wind_speed = np.loadtxt("../output/weather_average_by_month.out", delimiter=', ', unpack=True)
 
 dates = []
 for year in range(2006, 2016):
@@ -48,7 +48,7 @@ ax2.grid(True)
 ax2.plot(dates, temperature, 'r')
 
 ax3 = fig.add_subplot(413, sharex=ax1)
-ax3.set_ylabel('avg. humidity (%)')
+ax3.set_ylabel('avg. relative humidity ')
 ax3.grid(True)
 ax3.plot(dates, humidity, 'g')
 
