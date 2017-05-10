@@ -11,7 +11,7 @@ def format_date(row):
     temperature = 0 if row[1][0] == '' else int(row[1][0])
     humidity = 0 if row[1][1] == '' else int(row[1][1])
     wind_speed = 0 if row[1][2] == '' else int(row[1][2])
-    return crime_date.strftime('%Y-%m'), (temperature, humidity, wind_speed, row[1][3])
+    return crime_date.strftime('%Y%m'), (temperature, humidity, wind_speed, row[1][3])
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
